@@ -1,6 +1,5 @@
 # Machine Learning
-: k-Nearest Neighbor/ Linear Regression/ Perceptron
-: Logistic Regression/ Neural Networks
+: k-Nearest Neighbor/ Linear Regression/ Perceptron/ Logistic Regression/ Neural Networks/ k-means Clustering/ Gaussian Mixture Models/ Hidden Markov Models/ Principal Component Analysis
 
 ## Enviornments
 numpy==1.13.1
