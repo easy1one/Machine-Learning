@@ -6,33 +6,23 @@ import scipy as sp
 from matplotlib import pyplot as plt
 from matplotlib import cm
 
-
-#######################################################################
-# DO NOT MODIFY THE CODE BELOW 
-#######################################################################
-
 def binary_train(X, y, w0=None, b0=None, step_size=0.5, max_iterations=1000):
     """
     Inputs:
-    - X: training features, a N-by-D numpy array, where N is the 
-    number of training points and D is the dimensionality of features
-    - y: binary training labels, a N dimensional numpy array where 
-    N is the number of training points, indicating the labels of 
-    training data
-    - step_size: step size (learning rate)
+    - X: training features, a N-by-D numpy array, where N: number of training points & D: dimensionality of features
+    - y: binary training labels, a N dimensional numpy array where N: number of training points
+    - step_size: learning rate
 
     Returns:
-    - w: D-dimensional vector, a numpy array which is the weight 
-    vector of logistic regression
+    - w: D-dimensional vector, a numpy array which is the weight vector of logistic regression
     - b: scalar, which is the bias of logistic regression
 
+    Goal:
     Find the optimal parameters w and b for inputs X and y.
-    Use the average of the gradients for all training examples to
-    update parameters.
+    Use the average of the gradients for all training examples to update parameters.
     """
     N, D = X.shape
     assert len(np.unique(y)) == 2
-
 
     w = np.zeros(D)
     if w0 is not None:
@@ -71,8 +61,7 @@ def binary_train(X, y, w0=None, b0=None, step_size=0.5, max_iterations=1000):
 def binary_predict(X, w, b):
     """
     Inputs:
-    - X: testing features, a N-by-D numpy array, where N is the 
-    number of training points and D is the dimensionality of features
+    - X: testing features, a N-by-D numpy array, where N: number of testing points & D: dimensionality of features
     
     Returns:
     - preds: N dimensional vector of binary predictions: {0, 1}
@@ -94,27 +83,19 @@ def multinomial_train(X, y, C,
                      max_iterations=1000):
     """
     Inputs:
-    - X: training features, a N-by-D numpy array, where N is the 
-    number of training points and D is the dimensionality of features
-    - y: multiclass training labels, a N dimensional numpy array where
-    N is the number of training points, indicating the labels of 
-    training data
+    - X: training features, a N-by-D numpy array, where N: number of training points & D: dimensionality of features
+    - y: binary training labels, a N dimensional numpy array where N: number of training points
     - C: number of classes in the data
-    - step_size: step size (learning rate)
+    - step_size: learning rate
     - max_iterations: maximum number for iterations to perform
 
     Returns:
-    - w: C-by-D weight matrix of multinomial logistic regression, where 
-    C is the number of classes and D is the dimensionality of features.
-    - b: bias vector of length C, where C is the number of classes
+    - w: C-by-D weight matrix of multinomial logistic regression, where C: number of classes & D: dimensionality of features.
+    - b: bias vector of length C
 
-    Implement a multinomial logistic regression for multiclass 
-    classification. Keep in mind, that for this task you may need a 
-    special (one-hot) representation of classification labels, where 
-    each label y_i is represented as a row of zeros with a single 1 in
-    the column, that corresponds to the class y_i belongs to. 
+    Goal:
+    Implement a multinomial logistic regression for multiclass classification.
     """
-
     N, D = X.shape
 
     w = np.zeros((C, D))
@@ -164,16 +145,15 @@ def multinomial_train(X, y, C,
 def multinomial_predict(X, w, b):
     """
     Inputs:
-    - X: testing features, a N-by-D numpy array, where N is the 
-    number of training points and D is the dimensionality of features
+    - X: testing features, a N-by-D numpy array, where N: number of testing points & D: dimensionality of features
     - w: weights of the trained multinomial classifier
     - b: bias terms of the trained multinomial classifier
     
     Returns:
     - preds: N dimensional vector of multiclass predictions.
-    Outputted predictions should be from {0, C - 1}, where
-    C is the number of classes
+    Outputted predictions should be from {0, C - 1}, where C: number of classes
 
+    Goal:
     Make predictions for multinomial classifier.
     """
     N, D = X.shape
@@ -202,23 +182,21 @@ def multinomial_predict(X, w, b):
 def OVR_train(X, y, C, w0=None, b0=None, step_size=0.5, max_iterations=1000):
     """
     Inputs:
-    - X: training features, a N-by-D numpy array, where N is the 
-    number of training points and D is the dimensionality of features
-    - y: multiclass training labels, a N dimensional numpy array, 
-    indicating the labels of each training point
+    - X: training features, a N-by-D numpy array, where N: number of training points & D: dimensionality of features
+    - y: multiclass training labels, a N dimensional numpy array
     - C: number of classes in the data
     - w0: initial value of weight matrix
     - b0: initial value of bias term
-    - step_size: step size (learning rate)
+    - step_size: learning rate
     - max_iterations: maximum number of iterations for gradient descent
 
     Returns:
     - w: a C-by-D weight matrix of OVR logistic regression
     - b: bias vector of length C
 
-    Implement multiclass classification using binary classifier and 
-    one-versus-rest strategy. Recall, that the OVR classifier is 
-    trained by training C different classifiers. 
+    Goal:
+    Implement multiclass classification using binary classifier and one-versus-rest strategy.
+    OVR classifier is trained by C different classifiers. 
     """
     N, D = X.shape
     
@@ -229,10 +207,6 @@ def OVR_train(X, y, C, w0=None, b0=None, step_size=0.5, max_iterations=1000):
     b = np.zeros(C)
     if b0 is not None:
         b = b0
-
-    """
-    TODO: add your code here
-    """
 
     # Set X_
     ones = np.matrix(np.ones(N));
@@ -273,18 +247,16 @@ def OVR_train(X, y, C, w0=None, b0=None, step_size=0.5, max_iterations=1000):
 def OVR_predict(X, w, b):
     """
     Inputs:
-    - X: testing features, a N-by-D numpy array, where N is the 
-    number of training points and D is the dimensionality of features
+    - X: testing features, a N-by-D numpy array, where N: number of training points and D is the dimensionality of features
     - w: weights of the trained OVR model
     - b: bias terms of the trained OVR model
     
     Returns:
     - preds: vector of class label predictions.
-    Outputted predictions should be from {0, C - 1}, where
-    C is the number of classes.
+    Outputted predictions should be from {0, C - 1}, where C: number of classes.
 
-    Make predictions using OVR strategy and predictions from binary
-    classifier. 
+    Goal:
+    Make predictions using OVR strategy and predictions from binary classifier. 
     """
     N, D = X.shape
     C = w.shape[0]
