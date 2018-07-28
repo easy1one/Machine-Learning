@@ -2,11 +2,11 @@
 : k-Nearest Neighbor/ Linear Regression/ Perceptron/ Logistic Regression/ Neural Networks/ k-means Clustering/ Gaussian Mixture Models/ Hidden Markov Models/ Principal Component Analysis
 
 ## Enviornments
-numpy==1.13.1
-scipy==0.19.1
-matplotlib==2.0.2
-scikit-learn==0.19.0
-jupyter==1.0.0
+numpy==1.13.1<br />
+scipy==0.19.1<br />
+matplotlib==2.0.2<br />
+scikit-learn==0.19.0<br />
+jupyter==1.0.0<br />
 
 ## Dataset
 The dataset is stored in a JSON-formated file (images of handwritten digits from 0 to 9).
