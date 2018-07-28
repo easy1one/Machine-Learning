@@ -29,8 +29,8 @@ and x['train'][1] containing the corresponding labels of size N.
    - A linear SVM classifiere using the Pegasos algorithm
 
 6. __boosting.py__: Boosting constructs a strong binary classifier based on iteratively adding one weak (binary) classifier into it. A weak classifier is learned to maximize the weighted training accuracy at the corresponding iteration, and the weight of each training example is updated after every iteration.
-- AdaBoost: boosting method using the exponential loss function
-- LogitBoost: boosting method using the logloss
+   - __AdaBoost__: boosting method using the exponential loss function
+   - __LogitBoost__: boosting method using the logloss
 
 7. __decision_tree.py__: Decision Tree classifier
 
